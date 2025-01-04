@@ -11,12 +11,12 @@ const BookmarkUI = async() => {
 
   return (
     <div className="min-h-screen  w-full">
-      <div className="py-20">
+      <div className=" pt-24 sm:pt-28">
         <Heading heading="All Book Marks" from="bookmark" />
         <ul className="mt-8 px-2 md:px-6 gap-4  max-h-[450px] sm:max-h-[600px] overflow-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
           {data?.map((bookmark) => {
             return (
-              <div >
+              <div key={bookmark?._id} >
                 <div className="flex items-center gap-4">
                   <form action={deleteBookmark} className="flex items-center gap-4">
                     <input type="hidden" name="id" value={bookmark?._id} />

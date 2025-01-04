@@ -46,6 +46,7 @@ export async function updateTodo(req, res) {
             { _id: req._id },
             { $set: { title: req.title, completed: req.completed } }
         );
+        revalidatePath("/todo");
         return {
             msg: "Todo updated successfully",
             status: 200,
@@ -57,6 +58,20 @@ export async function updateTodo(req, res) {
             error,
         };
     }
-
-   
+}
+export async function deleteTodo(req) {
+    try {
+        await Todo.findOneAndDelete({ _id: req._id });
+        revalidatePath("/todo");
+        return {
+            msg: "Todo deleted successfully",
+            status: 200,
+        };
+    } catch (error) {
+        return {
+            msg: "Failed to delete todo",
+            status: 500,
+            error: error.message,
+        };
+    }
 }

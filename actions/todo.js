@@ -16,7 +16,7 @@ export async function getTodos(req, res) {
         return {
             msg: "Failed to fetch todos",
             status: 500,
-            error,
+            error:error.message,
         }
     }
 }
@@ -33,9 +33,9 @@ export async function createTodo(req, res) {
     }
    } catch (error) {
     return {
-        msg: "Failed to create todo",
+        msg: "",
         status: 500,
-        error
+        error:error.message
     }
    }
 }
@@ -53,9 +53,9 @@ export async function updateTodo(req, res) {
         };
     } catch (error) {
         return {
-            msg: "Failed to update todo",
+            msg: "",
             status: 500,
-            error,
+            error:error.message,
         };
     }
 }
@@ -69,7 +69,7 @@ export async function deleteTodo(req) {
         };
     } catch (error) {
         return {
-            msg: "Failed to delete todo",
+            msg: "",
             status: 500,
             error: error.message,
         };

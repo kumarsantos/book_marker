@@ -16,6 +16,9 @@ const handleUpdate = async(e) => {
         if(res?.msg){
           toast.success(res.msg);
         }
+        if(res?.error){
+          toast.error(res.error);
+        }
         setOpen(false);
     })
 }
@@ -24,6 +27,9 @@ const handleDelete=async()=>{
     deleteTodo({_id}).then(res=>{
         if(res?.msg){
           toast.success(res.msg);
+        }
+        if(res?.error){
+          toast.error(res.error);
         }
     })
 }

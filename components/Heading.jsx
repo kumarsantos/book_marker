@@ -38,6 +38,9 @@ const Heading = ({from="todo",heading="All Todos"}) => {
           if(res?.msg){
             toast.success(res.msg);
           }
+          if(res?.error){
+            toast.error(res.error);
+          }
           setOpen(false);
         })
       }

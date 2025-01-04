@@ -16,7 +16,7 @@ export async function getBookmarks(req, res) {
         return {
             msg: "Failed to fetch bookmarks",
             status: 500,
-            error,
+            error:error.message,
         }
     }
 }
@@ -35,9 +35,9 @@ export async function createBookMark(req) {
         }
    } catch (error) {
     return {
-        msg: "Failed to create bookmark",
+        msg: "",
         status: 500,
-        error:null
+        error:error.message
     }
    }
 }
@@ -54,7 +54,7 @@ export async function deleteBookmark(formData) {
     return {
         msg: "Failed to delete bookmark",
         status: 500,
-        error
+        error:error.message
     }
    }
 }
